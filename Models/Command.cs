@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using HotChocolate;
 
 namespace CommanderGQL.Models
 {
+    [GraphQLDescription("Represents a command for a specific platform.")]
     public class Command
     {
         public int Id { get; set; }
@@ -15,6 +17,7 @@ namespace CommanderGQL.Models
         [Required]
         public int PlatformId { get; set; }
         
+        [GraphQLDescription("Represents a platform for this command.")]
         public Platform Platform { get; set; }
     }
 }

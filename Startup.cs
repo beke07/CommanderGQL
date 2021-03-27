@@ -1,5 +1,6 @@
 using CommanderGQL.Data;
 using CommanderGQL.GraphQL;
+using CommanderGQL.GraphQL.Commands;
 using CommanderGQL.GraphQL.Platforms;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,9 @@ namespace CommanderGQL
             services.AddGraphQLServer()
                 .AddQueryType<Query>()
                 .AddType<PlatformType>()
-                .AddProjections();
+                .AddType<CommandType>()
+                .AddFiltering()
+                .AddSorting();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

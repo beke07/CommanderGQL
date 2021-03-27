@@ -3,19 +3,20 @@ using CommanderGQL.Data;
 using CommanderGQL.Models;
 using HotChocolate;
 using HotChocolate.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace CommanderGQL.GraphQL
 {
     public class Query
     {
         [UseDbContext(typeof(AppDbContext))]
-        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
         public IQueryable<Platform> GetPlatform([ScopedService] AppDbContext context)
             => context.Platforms;
 
         [UseDbContext(typeof(AppDbContext))]
-        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
         public IQueryable<Command> GetCommand([ScopedService] AppDbContext context)
             => context.Commands;
     }

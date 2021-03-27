@@ -20,7 +20,7 @@ namespace CommanderGQL
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options
+            services.AddPooledDbContextFactory<AppDbContext>(options => options
                 .UseSqlServer(configuration.GetConnectionString("AppDbContext")));
 
             services.AddGraphQLServer()

@@ -24,7 +24,8 @@ namespace CommanderGQL
                 .UseSqlServer(configuration.GetConnectionString("AppDbContext")));
 
             services.AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddProjections();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

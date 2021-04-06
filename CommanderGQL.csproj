@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="README.MD" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="GraphQL.Server.Ui.Voyager" Version="5.0.1" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="11.0.9" />
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.0.9" />
